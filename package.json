@@ -16,7 +16,7 @@
     "lint:fix": "eslint --fix --ext .js src",
     "build1": "npm run lint && rimraf dist && webpack --config webpack.config.js -p --progress --hide-modules",
     "build": "npm run lint && rimraf dist && rollup -c ./rollup.config.js",
-    "pub": "npm login && npm publish"
+    "pub": "npm config set registry https://registry.npmjs.org/ && npm login && npm publish --access public && npm config set registry https://registry.npm.taobao.org/"
   },
   "dependencies": {},
   "engines": {
@@ -74,7 +74,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/funinps/dom-mark"
+    "url": "git+https://github.com/funinps/dom-mark.git"
   },
   "bugs": {
     "url": "https://github.com/funinps/dom-mark/issues"
