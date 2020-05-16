@@ -10,10 +10,19 @@ class DomMark {
     }
     if (!this.container) throw new Error(`invalid selector: ${el}`)
 
+    if (this.container.querySelector('div[powered-by="https://github.com/funinps/dom-mark"]')) {
+      this.container = null
+      return
+    }
+
     this._setOptions(options)
   }
 
   render () {
+    this.observer && this.observer.disconnect()
+
+    if (!this.container) return
+
     const { content, fontSize, fontFamily, opacity, color, padding, zIndex, minMargin, rotate, observe } = this.options
     const containerStyle = window.getComputedStyle(this.container)
     if (containerStyle.position === 'static') {
@@ -147,7 +156,6 @@ class DomMark {
 
   _observe () {
     if (!window.MutationObserver) return
-    this.observer && this.observer.disconnect()
     this.observer = new window.MutationObserver(() => {
       this.render()
     })
