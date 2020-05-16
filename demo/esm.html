@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"/>
+  <title>ESM</title>
+</head>
+<body>
+  <div style="display:flex;">
+    <div>
+      <div id="container" style="width:500px;height:600px;border:solid 1px #ddd;"></div>
+      <button id="updateBtn">update</button>
+      <button id="destroyBtn">destroy</button>
+    </div>
+    <div id="container1" style="width:500px;height:600px;border:solid 1px #ddd;margin-left:50px">
+
+    </div>
+  </div>
+
+  <script type="module">
+    import DomMark from '../src/index.js'
+
+    const domMark = new DomMark('#container', {
+      content: '好用的水印', // html,text
+      fontSize: 'inherit',
+      fontFamily: 'inherit',
+      color: '#f00',
+      opacity: .5,
+      padding: 20,
+      zIndex: 6000,
+      minMargin: [40, 20],
+      rotate: -15,
+      observe: true
+    })
+
+    domMark.render()
+
+    document.querySelector('#updateBtn').addEventListener('click', () => {
+      domMark.update({
+        content: `<span style="font-size:30px;color:#f00">升级</span>过的水印<br>${new Date().toLocaleDateString()}`,
+        color: '#f60'
+      })
+    })
+    document.querySelector('#destroyBtn').addEventListener('click', () => {
+      domMark.destroy()
+    })
+
+    const dm = new DomMark('#container1', {
+      content: '<img width="90" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAAAeCAYAAACsYQl4AAACk0lEQVRoge1YgW3bQAxkgy4gjqCO4I6gjOCM0Ixgj1CPkI5gj2CNII0gjUCNkIDByaColy1bRuC2PMBw8M8nn/fk/ccUCAQCgUAgEPjvwMwZM6/i5MeYy83TTH/q6HjnPf4rmMXNXKIDCxFEfxG++zCqOUT0Gy1RE9E2tRXY/SKiNRF1RPRHRA5mPtc5Edkx8wZ2n/5EpMN6HS+IqCSinY5fm/Y94sDHBjlfymWNvDsReTmzrz5uKSLlk5tUJ4KAJYYbIsoTG2sQUO1aInpj5gYBCGs2zFyZJNWv2hRYn2Fc41Zm7TVYFAeHY236XCqzhz7GXudgm0/tEf51/UpJHk0ysyDwgFQQKGasQVDvQ5M44u+Cmd+ZWbvD27zjUMn5fLuW5SVxkFvKJrPjJkbjiwFzlpscPA74sRW9RjvsrIGItKa61ZFWcTbRNq9aVXYzIuKlp0ScgxuvUYk34cY4WpUHbwNpqcHJIL9z8oYOquBzwI/V6AJtk0JpghbYxAgiUjNzB9sWeudxUYchTZdkpEMRTPm8GAdtXRrdtTFzz8dIBoZ7Vh97aPKrn/eX4dTm/PilJG7RWotNopo89LCfF8YhaPFnZePT5+Zl7FzOGUjeQss3Xhk80VMCb8e7GS0+1RmzgIoYVcW9AV3X3H4kXiLXRntRCWJmzX2v31aSrEbr4Gri5l8n7EaHAv2mhC4+KnK0uic5u/K+ON0F+D7g5XLi6EQ0DPQ0ju75s7YVDZ2qcWrWboX396BlHhydv7yRRzV1D80BLsIWcjIkGvgJvRHzpEuR94xNWrsKD/2/ieityUOfgw1+t9gulT9wlPXPvG8pC3Pr25s9ZWcf7u0t/9k9AubmGwgEAoFAIBAIBL4QRPQBaT5Kqoc+sx8AAAAASUVORK5CYII=">', // html,text
+      padding: 20,
+      minMargin: [40, 20],
+      rotate: -15,
+      observe: true
+    })
+    dm.render()
+  </script>
+</body>
+</html>
