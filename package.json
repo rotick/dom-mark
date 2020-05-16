@@ -1,6 +1,6 @@
 {
   "name": "@funinps/dom-mark",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Add text/HTML as watermark to DOM node, customizable content and style, automatically calculate size and position",
   "author": "dongnaebi",
   "main": "dist/dom-mark.js",
