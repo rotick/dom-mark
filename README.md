@@ -11,6 +11,7 @@ Add text/HTML as watermark to DOM node
 - 4kb mini library
 - support IE 9+ and all mobile browser
 - customizable HTML content and style
+- observe dom changes and rerender with MutationObserver
 
 ## Demo
 [ESM](demo/esm.html) | [UMD](demo/umd.html) | [mobile](demo/mobile.html)
@@ -53,6 +54,7 @@ domMark.update({
   content: '<img src="/watermark.png" width="60" />'
 })
 ```
+**important: if you want to use `setInterval` or `setTimeout` to update, don't forget `clearInterval` or `clearTimeout`, otherwise maybe it will cause a crash(e.g. webpack HMR)**
 ### destroy:
 ```javascript
 domMark.destroy()
@@ -80,7 +82,11 @@ dm.destroy()
 | zIndex | Number | 6000 | z-index of centent |
 | minMargin | Array | [40, 20] | [vertical, horizontal], margin of item unit: px |
 | rotate | Number | -15 | rotation angle of item |
-| observe | Boolean | true | observe the dom change and rerender, prevent user delete watermarks |
+| observe | Boolean | true | observe the dom change and rerender, prevent user delete watermarks, work with `MutationObserver`, see [caniuse](https://caniuse.com/#search=MutationObserver) |
+
+## Change log
+#### v1.1.0 2020/05/17
+rerender when hot module reload, rerender only when watermark change in MutationObserver
 
 ## Questions & Suggestions
 

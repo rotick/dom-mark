@@ -1,8 +1,11 @@
+const listeners = []
+const observers = []
 class DomMark {
   constructor (el = 'body', options = {}) {
     this.container = null
     this.box = null
     this.observer = null
+    this.options = {}
     if (el instanceof window.HTMLElement) {
       this.container = el
     } else {
@@ -10,18 +13,22 @@ class DomMark {
     }
     if (!this.container) throw new Error(`invalid selector: ${el}`)
 
-    if (this.container.querySelector('div[powered-by="https://github.com/funinps/dom-mark"]')) {
-      this.container = null
-      return
+    const existBox = this.container.querySelector('div[powered-by="https://github.com/funinps/dom-mark"]')
+    if (existBox) {
+      this.box = existBox
     }
 
     this._setOptions(options)
   }
 
   render () {
+    const existListenIndex = listeners.indexOf(this.container)
+    if (existListenIndex > -1) {
+      this.observer = observers[existListenIndex]
+      listeners.splice(existListenIndex, 1)
+      observers.splice(existListenIndex, 1)
+    }
     this.observer && this.observer.disconnect()
-
-    if (!this.container) return
 
     const { content, fontSize, fontFamily, opacity, color, padding, zIndex, minMargin, rotate, observe } = this.options
     const containerStyle = window.getComputedStyle(this.container)
@@ -156,14 +163,41 @@ class DomMark {
 
   _observe () {
     if (!window.MutationObserver) return
-    this.observer = new window.MutationObserver(() => {
-      this.render()
+    this.observer = new window.MutationObserver(mutations => {
+      for (let i = 0; i < mutations.length; i++) {
+        const mutation = mutations[i]
+        let target = mutation.target
+        if (mutation.removedNodes.length) {
+          target = mutation.removedNodes[0]
+        }
+        const parents = this._getParents(target)
+        if (parents.indexOf(this.box) > -1) {
+          this.render()
+          break
+        }
+      }
     })
     this.observer.observe(this.container, {
       attributes: true,
       childList: true,
-      subtree: true
+      subtree: true,
+      characterData: true
     })
+    listeners.push(this.container)
+    observers.push(this.observer)
+  }
+
+  _getParents (node) {
+    const nodes = [node]
+    const recursion = n => {
+      if (n.parentNode) {
+        nodes.push(n.parentNode)
+        return recursion(n.parentNode)
+      } else {
+        return nodes
+      }
+    }
+    return recursion(node)
   }
 }
 

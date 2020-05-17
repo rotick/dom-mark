@@ -11,6 +11,7 @@
 - 仅4kb的mini库
 - 支持IE 9以上及所有移动端浏览器
 - 可自由定制水印的内容和样式
+- MutationObserver监听dom变化并重新渲染水印
 
 ## 示例
 [ESM](demo/esm.html) | [UMD](demo/umd.html) | [移动端](demo/mobile.html)
@@ -53,6 +54,8 @@ domMark.update({
   content: '<img src="/watermark.png" width="60" />'
 })
 ```
+**重要提示：如果你需要使用`setInterval` 或 `setTimeout`来调用更新，别忘了`clearInterval` 或 `clearTimeout`，否则可能会导致浏览器崩溃，尤其是本地开发热更新的时候**
+
 ### 销毁:
 ```javascript
 domMark.destroy()
@@ -80,7 +83,11 @@ dm.destroy()
 | zIndex | Number | 6000 | z-index，水印是定位展示的 |
 | minMargin | Array | [40, 20] | [垂直方向, 水平方向], 水印之间的margin 单位: px |
 | rotate | Number | -15 | 水印旋转角度 |
-| observe | Boolean | true | 监听dom改变重新渲染，防止用户删除水印 |
+| observe | Boolean | true | 监听dom改变重新渲染，防止用户删除水印，此属性仅支持IE 11及以上浏览器  |
+
+## 更新日志
+#### v1.1.0 2020/05/17
+本地开发热更新时重新渲染水印，MutationObserver仅当变化元素是水印相关元素时才触发重新渲染
 
 ## 问题及建议
 
