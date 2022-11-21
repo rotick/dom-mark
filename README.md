@@ -2,8 +2,8 @@
 [![NPM version][npm-image]][npm-url] | 
 [中文文档](README_zh.md)
 
-[npm-image]: https://img.shields.io/npm/v/@funinps/dom-mark.svg?style=flat-square
-[npm-url]: https://www.npmjs.com/package/@funinps/dom-mark
+[npm-image]: https://img.shields.io/npm/v/@rotick/dom-mark.svg?style=flat-square
+[npm-url]: https://www.npmjs.com/package/@rotick/dom-mark
 
 Add text/HTML as watermark to DOM node
 
@@ -20,9 +20,7 @@ Add text/HTML as watermark to DOM node
 
 ## Install
 ```bash
-npm i @funinps/dom-mark -S
-# or
-yarn add @funinps/dom-mark
+npm i @rotick/dom-mark -S
 ```
 In browser, download `dist/dom-mark.js` to your project:
 ```html
@@ -31,7 +29,7 @@ In browser, download `dist/dom-mark.js` to your project:
 
 ## Useage
 ```javascript
-import DomMark from '@funinps/dom-mark'
+import DomMark from '@rotick/dom-mark'
 
 const domMark = new DomMark('body', {
   content: '水印', // html,text
@@ -90,7 +88,7 @@ rerender when hot module reload, rerender only when watermark change in Mutation
 
 ## Questions & Suggestions
 
-Please open an issue [here](https://github.com/funinps/dom-mark/issues).
+Please open an issue [here](https://github.com/rotick/dom-mark/issues).
 
 ## License
 

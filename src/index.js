@@ -13,7 +13,7 @@ class DomMark {
     }
     if (!this.container) throw new Error(`invalid selector: ${el}`)
 
-    const existBox = this.container.querySelector('div[powered-by="https://github.com/funinps/dom-mark"]')
+    const existBox = this.container.querySelector('div[powered-by="https://github.com/rotick/dom-mark"]')
     if (existBox) {
       this.box = existBox
     }
@@ -42,7 +42,7 @@ class DomMark {
     box.style.cssText = `position:absolute;top:0;left:0;right:0;bottom:0;font-size:${fontSize};
     font-family:${fontFamily};opacity:${opacity};color:${color};pointer-events:none;
     user-select: none;-ms-user-select: none;z-index:${zIndex};z-index:-1\\9;`
-    box.setAttribute('powered-by', 'https://github.com/funinps/dom-mark')
+    box.setAttribute('powered-by', 'https://github.com/rotick/dom-mark')
     box.setAttribute('onselectstart', 'return false;')
     box.setAttribute('ondragstart', 'return false;')
     temp.style.cssText = 'position:absolute;top:0;left:0;opacity:0;'

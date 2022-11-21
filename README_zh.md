@@ -2,8 +2,8 @@
 [![NPM version][npm-image]][npm-url] | 
 [English documentation](README.md)
 
-[npm-image]: https://img.shields.io/npm/v/@funinps/dom-mark.svg?style=flat-square
-[npm-url]: https://www.npmjs.com/package/@funinps/dom-mark
+[npm-image]: https://img.shields.io/npm/v/@rotick/dom-mark.svg?style=flat-square
+[npm-url]: https://www.npmjs.com/package/@rotick/dom-mark
 
 将文本或者html作为水印添加到DOM节点中
 
@@ -20,9 +20,7 @@
 
 ## 安装
 ```bash
-npm i @funinps/dom-mark -S
-# 或者
-yarn add @funinps/dom-mark
+npm i @rotick/dom-mark -S
 ```
 如果是直接引入使用，则下载 `dist/dom-mark.js` 到你的项目中:
 ```html
@@ -31,7 +29,7 @@ yarn add @funinps/dom-mark
 
 ## 用法
 ```javascript
-import DomMark from '@funinps/dom-mark'
+import DomMark from '@rotick/dom-mark'
 
 const domMark = new DomMark('body', {
   content: '水印', // html,text
@@ -91,7 +89,7 @@ dm.destroy()
 
 ## 问题及建议
 
-请开一个 [issue](https://github.com/funinps/dom-mark/issues).
+请开一个 [issue](https://github.com/rotick/dom-mark/issues).
 
 ## License
 

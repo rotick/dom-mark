@@ -6,21 +6,5 @@
         "modules": false
       }
     ]
-  ],
-  "plugins": [
-    "transform-vue-jsx",
-    [
-      "@babel/plugin-transform-runtime",
-      {
-        "corejs": false,
-        "helpers": false,
-        "regenerator": true,
-        "useESModules": false
-      }
-    ],
-    "@babel/plugin-transform-object-assign",
-    "@babel/plugin-proposal-object-rest-spread",
-    "@babel/plugin-syntax-dynamic-import",
-    "@babel/plugin-proposal-optional-chaining"
   ]
 }

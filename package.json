@@ -1,6 +1,6 @@
 {
-  "name": "@funinps/dom-mark",
-  "version": "1.1.0",
+  "name": "@rotick/dom-mark",
+  "version": "1.2.0",
   "description": "Add text/HTML as watermark to DOM node, customizable content and style, automatically calculate size and position",
   "author": "dongnaebi",
   "main": "dist/dom-mark.js",
@@ -14,71 +14,33 @@
   "scripts": {
     "lint": "eslint --ext .js src",
     "lint:fix": "eslint --fix --ext .js src",
-    "build1": "npm run lint && rimraf dist && webpack --config webpack.config.js -p --progress --hide-modules",
     "build": "npm run lint && rimraf dist && rollup -c ./rollup.config.js",
-    "pub": "npm config set registry https://registry.npmjs.org/ && npm login && npm publish --access public && npm config set registry https://registry.npm.taobao.org/"
+    "pub": "npm publish --access public"
   },
-  "dependencies": {},
   "engines": {
-    "node": "> 8.1.4",
-    "npm": ">= 5.2.0"
+    "node": "> 14.0.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.9.6",
-    "@babel/parser": "7.7.5",
-    "@babel/plugin-proposal-object-rest-spread": "^7.9.6",
-    "@babel/plugin-proposal-optional-chaining": "^7.9.0",
-    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
-    "@babel/plugin-transform-object-assign": "^7.8.3",
-    "@babel/plugin-transform-runtime": "^7.9.6",
-    "@babel/polyfill": "^7.8.7",
-    "@babel/preset-env": "^7.9.6",
-    "@babel/runtime": "^7.9.6",
-    "autoprefixer": "^9.7.6",
-    "babel-eslint": "^10.1.0",
-    "babel-loader": "^8.1.0",
-    "babel-plugin-component": "^1.1.1",
-    "babel-plugin-import": "^1.13.0",
-    "babel-plugin-syntax-jsx": "^6.18.0",
-    "babel-plugin-transform-vue-jsx": "^3.7.0",
-    "cross-env": "^7.0.2",
-    "css-loader": "^3.5.3",
-    "eslint": "^6.8.0",
-    "eslint-config-enough": "^0.4.3",
-    "eslint-config-standard": "^14.1.1",
-    "eslint-loader": "^4.0.2",
-    "eslint-plugin-html": "^6.0.2",
-    "eslint-plugin-import": "^2.20.2",
+    "@babel/core": "^7.20.2",
+    "@babel/eslint-parser": "^7.19.1",
+    "@babel/preset-env": "^7.20.2",
+    "@rollup/plugin-babel": "^6.0.2",
+    "@rollup/plugin-terser": "^0.1.0",
+    "eslint": "^8.28.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.1",
-    "eslint-plugin-vue": "^6.2.2",
-    "file-loader": "^6.0.0",
-    "html-loader": "^1.1.0",
-    "html-webpack-plugin": "^4.3.0",
-    "less": "^3.11.1",
-    "less-loader": "^6.1.0",
-    "node-sass": "^4.14.1",
-    "postcss-loader": "^3.0.0",
-    "raw-loader": "^4.0.1",
+    "eslint-plugin-promise": "^6.1.1",
     "rimraf": "^3.0.2",
-    "rollup": "^2.10.2",
-    "rollup-plugin-babel": "^4.4.0",
-    "rollup-plugin-uglify": "^6.0.4",
-    "sass-loader": "^8.0.2",
-    "style-loader": "^1.2.1",
-    "url-loader": "^4.1.0",
-    "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.11",
-    "webpack-dev-server": "^3.11.0"
+    "rollup": "^3.3.0"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/funinps/dom-mark.git"
+    "url": "git+https://github.com/rotick/dom-mark.git"
   },
   "bugs": {
-    "url": "https://github.com/funinps/dom-mark/issues"
+    "url": "https://github.com/rotick/dom-mark/issues"
   },
-  "homepage": "https://github.com/funinps/dom-mark#readme",
+  "homepage": "https://github.com/rotick/dom-mark#readme",
   "license": "MIT"
 }
